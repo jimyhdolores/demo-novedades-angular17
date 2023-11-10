@@ -1,0 +1,14 @@
+.menu {
+  padding: 1em;
+  display: flex;
+  gap: 1em;
+  font-size: 16px;
+
+  &__item {
+    padding: 1em;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #9c27b0;
+    color: white;
+  }
+}

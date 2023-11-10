@@ -1,0 +1,14 @@
+<div>
+  <button (click)="mostrarIronMan=true">Mostrar IRON MAN</button>
+  <button (click)="mostrarThor=true">Mostrar THOR</button>
+</div>
+
+<section class="defer-heros">
+  @defer (when mostrarIronMan) {
+  <app-hero-iroman />
+  }@loading {Descargando a IRON MAN}
+
+  @defer (when mostrarThor) {<app-hero-thor />}
+  @loading {Descargando a THOR}
+  @error {Hubo un error en la descarga}
+</section>

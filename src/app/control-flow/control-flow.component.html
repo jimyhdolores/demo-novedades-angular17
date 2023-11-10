@@ -1,0 +1,114 @@
+<h1>IF CONTROL</h1>
+
+<div class="section">
+  <section>
+    <h2>Directive IF</h2>
+    <!-- <span *ngIf="sueldo >= 5000;else impuest4categoria">Tiene que pagar impuestos de 5 categoria </span>
+
+    <ng-template #impuest4categoria>
+      <span *ngIf="sueldo >=3000;else sinimpuesto">Tiene que pagar impuestos de 4 categoria </span>
+      <ng-template #sinimpuesto>
+        <span>No paga impuestos </span>
+        <button (click)="sueldo=3000">aumentar sueldo</button>
+      </ng-template>
+    </ng-template> -->
+
+  </section>
+
+  <section>
+    <h2>New control IF</h2>
+
+    @if (sueldo >= 5000) {
+    <span>Tiene que pagar impuestos de 5 categoria </span>
+    }@else if (sueldo >=3000) {
+    <span>Tiene que pagar impuestos de 4 categoria </span>
+    }@else {
+    <span>No paga impuestos </span>
+    <button (click)="sueldo=3000">aumentar sueldo</button>
+    }
+
+
+  </section>
+</div>
+
+<h1>SWITCH CONTROL</h1>
+<h3>valor1: {{ valor1 }}</h3>
+<h3>valor2: {{ valor2 }}</h3>
+
+<div style="display: flex; gap: 1em">
+  <button (click)="operacion = 'sumar'">+</button>
+  <button (click)="operacion = 'restar'">-</button>
+  <button (click)="operacion = 'multiplicar'">*</button>
+  <button (click)="operacion = 'dividir'">/</button>
+</div>
+
+<br>
+<div class="section">
+  <section>
+    <h2>Directives SWITCH</h2>
+    resultado:
+    <!-- <ng-container [ngSwitch]="operacion">
+      <ng-container *ngSwitchCase="'sumar'">{{ valor1 + valor2 }}</ng-container>
+      <ng-container *ngSwitchCase="'restar'">{{ valor1 - valor2 }}</ng-container>
+      <ng-container *ngSwitchCase="'multiplicar'">{{ valor1 * valor2 }}</ng-container>
+      <ng-container *ngSwitchCase="'dividir'">{{ valor1 / valor2 }}</ng-container>
+      <ng-container *ngSwitchDefault>SELECCIONA UNA OPERACION</ng-container>
+    </ng-container> -->
+  </section>
+
+  <section>
+    <h2>New control SWITCH</h2>
+    resultado:
+    @switch (operacion) {
+    @case ('sumar') {
+    {{ valor1 + valor2 }}
+    }@case ('restar') {
+    {{ valor1 - valor2 }}
+    }
+    @case ('multiplicar') {
+    {{ valor1 * valor2 }}
+    }
+    @case ('dividir') {
+    {{ valor1 / valor2 }}
+    }
+    @default { SELECCIONA UNA OPERACION }
+    }
+
+
+  </section>
+</div>
+
+
+<h1>FOR CONTROL</h1>
+<button (click)="listaDeSueldos=[]">Vaciar sueldos</button>
+<button (click)="listaDeSueldos=[50, 20, 50]">llenar sueldos</button>
+<br>
+<br>
+
+<div class="section">
+
+  <section>
+    <h2>Directives FOR</h2>
+
+    <!-- <ng-container *ngIf="listaDeSueldos.length>0; else listaSueldoVacia">
+      <p *ngFor="let item of listaDeSueldos; let i=index"> sueldo {{i + 1}}: {{item}} </p>
+    </ng-container>
+
+    <ng-template #listaSueldoVacia>
+      No hay sueldos que mostrar😔
+    </ng-template> -->
+  </section>
+
+
+  <section>
+    <h2>New control FOR</h2>
+    @for (item of listaDeSueldos; track i; let i = $index, e = $even) {
+    <p>sueldo {{i + 1}}: {{item}} </p>
+    }@empty {
+    No hay sueldos que mostrar😔
+    }
+
+
+  </section>
+
+</div>
